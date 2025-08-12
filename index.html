@@ -1582,7 +1582,7 @@
             orderTotal.textContent = `₹${subtotal}`;
         }
 
-        // Form submission
+        // Form submission - Modified for WhatsApp
         customerInfoForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -1599,56 +1599,60 @@
                 notes: document.getElementById('notes').value
             };
             
-            // Prepare form data
-            const formData = new FormData(this);
+            // Prepare WhatsApp message
+            let whatsappMessage = `*NEW ORDER - Singh's Kitchen*\n\n`;
+            whatsappMessage += `*Customer Details:*\n`;
+            whatsappMessage += `👤 Name: ${customerInfo.firstName} ${customerInfo.lastName}\n`;
+            whatsappMessage += `📞 Phone: ${customerInfo.phone}\n`;
+            whatsappMessage += `📧 Email: ${customerInfo.email}\n`;
+            whatsappMessage += `🏠 Address: ${customerInfo.address}, ${customerInfo.city}, ${customerInfo.state} - ${customerInfo.pincode}\n`;
+            if (customerInfo.notes) {
+                whatsappMessage += `📝 Notes: ${customerInfo.notes}\n`;
+            }
             
-            // Add order items to form data
-            formData.append('_subject', 'New Order from Singh\'s Kitchen');
-            
-            cart.forEach((item, index) => {
-                formData.append(`item_${index + 1}`, `${item.name} (${item.size}) - ₹${item.price} x ${item.quantity}`);
+            whatsappMessage += `\n*Order Items:*\n`;
+            cart.forEach(item => {
+                whatsappMessage += `➡️ ${item.name} (${item.size}) × ${item.quantity} - ₹${item.price * item.quantity}\n`;
             });
             
-            // Add totals
             const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-            formData.append('subtotal', `₹${subtotal}`);
-            formData.append('total', `₹${subtotal}`);
+            whatsappMessage += `\n💰 *Total Amount: ₹${subtotal}*`;
+            
+            // Encode message for WhatsApp URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
             
             // Show loading state
             const submitBtn = this.querySelector('button[type="submit"]');
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting to WhatsApp...';
             
-            // Send to Formspree
-            fetch('https://formspree.io/f/xjkoezeq', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Network response was not ok');
-                }
-            })
-            .then(data => {
-                // Show confirmation page
+            // Open WhatsApp with the message
+            const whatsappUrl = `https://wa.me/918000007152?text=${encodedMessage}`;
+            
+            // Try to open WhatsApp in a new tab
+            const newWindow = window.open(whatsappUrl, '_blank');
+            
+            // Fallback if popup is blocked
+            if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                // Create a temporary link and click it
+                const tempLink = document.createElement('a');
+                tempLink.href = whatsappUrl;
+                tempLink.target = '_blank';
+                tempLink.style.display = 'none';
+                document.body.appendChild(tempLink);
+                tempLink.click();
+                document.body.removeChild(tempLink);
+            }
+            
+            // Show confirmation page after a short delay
+            setTimeout(() => {
                 showConfirmationPage();
-            })
-            .catch(error => {
-                alert('There was a problem with your order. Please try again or contact us directly.');
-                console.error('Error:', error);
-            })
-            .finally(() => {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Place Order';
-            });
+            }, 1000);
         });
 
-        // Show improved confirmation page (modified to only show product details)
+        // Show improved confirmation page
         function showConfirmationPage() {
             checkoutPage.classList.remove('active');
             confirmationPage.classList.add('active');
