@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Singh's Kitchen | Chicken Pickle</title>
+    <title>Singh's Kitchen | Premium Pickles</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -356,10 +356,9 @@
         }
 
         .products-container {
-            display: flex;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
-            flex-wrap: wrap;
         }
 
         .product-card {
@@ -368,7 +367,6 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            max-width: 350px;
             position: relative;
         }
 
@@ -1100,8 +1098,8 @@
                 <source src="5243072-hd_1920_1080_25fps.mp4" type="video/mp4">
             </video>
             <div class="hero-content">
-                <h2>Chicken Pickle</h2>
-                <p>Experience the authentic taste of Himachal Pradesh with our traditional family recipe, crafted with the finest ingredients and decades of culinary expertise</p>
+                <h2>Premium Homemade Pickles</h2>
+                <p>Experience authentic flavors with our traditional family recipes, crafted with the finest ingredients and decades of culinary expertise</p>
                 <a href="#products" class="btn">Order Now</a>
             </div>
         </section>
@@ -1110,13 +1108,13 @@
         <div class="trust-badges">
             <div class="trust-badge">
                 <i class="fas fa-certificate"></i>
-                <h3>Authentic Recipe</h3>
-                <p>Made using our family's secret recipe passed down through generations</p>
+                <h3>Authentic Recipes</h3>
+                <p>Made using our family's secret recipes passed down through generations</p>
             </div>
             <div class="trust-badge">
                 <i class="fas fa-leaf"></i>
                 <h3>Premium Ingredients</h3>
-                <p>Only the freshest chicken and highest quality spices used</p>
+                <p>Only the freshest ingredients and highest quality spices used</p>
             </div>
             <div class="trust-badge">
                 <i class="fas fa-heart"></i>
@@ -1128,10 +1126,11 @@
         <!-- Product Section -->
         <section class="product-section" id="products">
             <div class="section-title">
-                <h2>Our Chicken Pickle</h2>
-                <p>Available in two sizes to suit your needs. Perfect as a gift or for personal enjoyment.</p>
+                <h2>Our Premium Pickles</h2>
+                <p>Available in multiple varieties to suit your taste. Perfect as gifts or for personal enjoyment.</p>
             </div>
             <div class="products-container">
+                <!-- Chicken Pickle -->
                 <div class="product-card">
                     <div class="product-badge">Bestseller</div>
                     <div class="product-img-container">
@@ -1151,7 +1150,59 @@
                         
                         <div class="product-footer">
                             <div class="product-price">₹950</div>
-                            <button class="add-to-cart">
+                            <button class="add-to-cart" data-product="Chicken Pickle">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Garlic Pickle -->
+                <div class="product-card">
+                    <div class="product-img-container">
+                        <img src="WhatsApp Image 2025-08-12 at 16.21.21" alt="Garlic Pickle" class="product-img">
+                    </div>
+                    <div class="product-content">
+                        <h3>Garlic Pickle</h3>
+                        <p>Aromatic garlic cloves marinated in traditional spices, perfect for garlic lovers. Enhances the flavor of any meal.</p>
+                        
+                        <div class="product-options">
+                            <div class="option-title">Select Size:</div>
+                            <div class="size-options">
+                                <div class="size-option selected" data-size="1kg" data-price="200">1kg</div>
+                                <div class="size-option" data-size="500g" data-price="120">500g</div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-footer">
+                            <div class="product-price">₹200</div>
+                            <button class="add-to-cart" data-product="Garlic Pickle">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mushroom Pickle -->
+                <div class="product-card">
+                    <div class="product-img-container">
+                        <img src="WhatsApp Image 2025-08-12 at 16.23.30" alt="Mushroom Pickle" class="product-img">
+                    </div>
+                    <div class="product-content">
+                        <h3>Mushroom Pickle</h3>
+                        <p>Juicy mushrooms infused with special spices, creating a unique and flavorful pickle that's perfect with rice or bread.</p>
+                        
+                        <div class="product-options">
+                            <div class="option-title">Select Size:</div>
+                            <div class="size-options">
+                                <div class="size-option selected" data-size="1kg" data-price="180">1kg</div>
+                                <div class="size-option" data-size="500g" data-price="100">500g</div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-footer">
+                            <div class="product-price">₹180</div>
+                            <button class="add-to-cart" data-product="Mushroom Pickle">
                                 <i class="fas fa-cart-plus"></i> Add to Cart
                             </button>
                         </div>
@@ -1165,11 +1216,11 @@
             <div class="footer-content">
                 <div class="footer-col">
                     <h4>About Us</h4>
-                    <p>Singh's Kitchen brings you authentic homemade chicken pickle made with traditional recipes and premium ingredients.</p>
+                    <p>Singh's Kitchen brings you authentic homemade pickles made with traditional recipes and premium ingredients.</p>
                     <div class="social-links">
                         <a href="https://instagram.com/singhskitchen.official" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://wa.me/918000007152" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/918803000082" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
@@ -1180,7 +1231,7 @@
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <span>+91 80000 07152</span>
+                        <span>+91 8803 0000 82</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
@@ -1230,7 +1281,7 @@
         </div>
         
         <form id="customerInfoForm" class="checkout-form">
-            <h3 class="form-title">Shipping Information</h3>
+            <h3 class="form-title">Delivery Information</h3>
             
             <div class="form-row">
                 <div class="form-col">
@@ -1258,7 +1309,7 @@
             </div>
             
             <div class="form-group">
-                <label for="address">Shipping Address *</label>
+                <label for="address">Delivery Address *</label>
                 <textarea id="address" name="address" rows="3" required></textarea>
             </div>
             
@@ -1322,7 +1373,7 @@
         <h2 class="confirmation-title">Order Confirmed!</h2>
         <p class="confirmation-message">
             Thank you for your order! We've received your request and will process it shortly.<br>
-            You'll receive a confirmation email with all the details.
+            You'll receive a confirmation on WhatsApp with all the details.
         </p>
         
         <div class="order-details" id="confirmationDetails">
@@ -1353,6 +1404,7 @@
 
         // Cart Functionality
         let cart = [];
+        let currentProduct = null;
         let currentSize = '1kg';
         let currentPrice = 950;
         let customerInfo = {};
@@ -1371,9 +1423,9 @@
         const cartSubtotal = document.getElementById('cartSubtotal');
         const cartTotal = document.getElementById('cartTotal');
         const checkoutBtn = document.getElementById('checkoutBtn');
-        const addToCartBtn = document.querySelector('.add-to-cart');
+        const addToCartBtns = document.querySelectorAll('.add-to-cart');
         const sizeOptions = document.querySelectorAll('.size-option');
-        const productPrice = document.querySelector('.product-price');
+        const productPrices = document.querySelectorAll('.product-price');
         const customerInfoForm = document.getElementById('customerInfoForm');
 
         // Toggle between main content and cart page
@@ -1410,44 +1462,65 @@
 
         // Size selection
         sizeOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                sizeOptions.forEach(opt => opt.classList.remove('selected'));
-                option.classList.add('selected');
-                currentSize = option.getAttribute('data-size');
-                currentPrice = parseInt(option.getAttribute('data-price'));
-                productPrice.textContent = `₹${currentPrice}`;
+            option.addEventListener('click', function() {
+                // Find the parent product card
+                const productCard = this.closest('.product-card');
+                // Remove selected class from all size options in this product
+                productCard.querySelectorAll('.size-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                // Add selected class to clicked option
+                this.classList.add('selected');
+                
+                // Update current size and price
+                currentSize = this.getAttribute('data-size');
+                currentPrice = parseInt(this.getAttribute('data-price'));
+                
+                // Update price display for this product
+                const priceDisplay = productCard.querySelector('.product-price');
+                priceDisplay.textContent = `₹${currentPrice}`;
             });
         });
 
         // Add to cart
-        addToCartBtn.addEventListener('click', () => {
-            const product = {
-                id: 1,
-                name: 'Chicken Pickle',
-                size: currentSize,
-                price: currentPrice,
-                quantity: 1,
-                image: 'Capture.JPG'
-            };
+        addToCartBtns.forEach(button => {
+            button.addEventListener('click', function() {
+                const productCard = this.closest('.product-card');
+                const productName = this.getAttribute('data-product');
+                const selectedSize = productCard.querySelector('.size-option.selected').getAttribute('data-size');
+                const selectedPrice = parseInt(productCard.querySelector('.size-option.selected').getAttribute('data-price'));
+                const productImage = productCard.querySelector('.product-img').src.split('/').pop();
 
-            // Check if same size already in cart
-            const existingItemIndex = cart.findIndex(item => item.size === product.size);
-            
-            if (existingItemIndex !== -1) {
-                // If same size exists, increase quantity
-                cart[existingItemIndex].quantity += 1;
-            } else {
-                // If different size or not in cart, add as new item
-                cart.push(product);
-            }
+                const product = {
+                    id: Date.now(),
+                    name: productName,
+                    size: selectedSize,
+                    price: selectedPrice,
+                    quantity: 1,
+                    image: productImage
+                };
 
-            updateCart();
-            
-            // Show feedback
-            addToCartBtn.innerHTML = '<i class="fas fa-check"></i> Added to Cart';
-            setTimeout(() => {
-                addToCartBtn.innerHTML = '<i class="fas fa-cart-plus"></i> Add to Cart';
-            }, 2000);
+                // Check if same product and size already in cart
+                const existingItemIndex = cart.findIndex(item => 
+                    item.name === product.name && item.size === product.size
+                );
+                
+                if (existingItemIndex !== -1) {
+                    // If same product exists, increase quantity
+                    cart[existingItemIndex].quantity += 1;
+                } else {
+                    // If different product or not in cart, add as new item
+                    cart.push(product);
+                }
+
+                updateCart();
+                
+                // Show feedback
+                this.innerHTML = '<i class="fas fa-check"></i> Added to Cart';
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-cart-plus"></i> Add to Cart';
+                }, 2000);
+            });
         });
 
         // Update cart display
@@ -1604,13 +1677,17 @@
             whatsappMessage += `*Customer Details:*\n`;
             whatsappMessage += `👤 Name: ${customerInfo.firstName} ${customerInfo.lastName}\n`;
             whatsappMessage += `📞 Phone: ${customerInfo.phone}\n`;
-            whatsappMessage += `📧 Email: ${customerInfo.email}\n`;
-            whatsappMessage += `🏠 Address: ${customerInfo.address}, ${customerInfo.city}, ${customerInfo.state} - ${customerInfo.pincode}\n`;
+            whatsappMessage += `📧 Email: ${customerInfo.email}\n\n`;
+            
+            whatsappMessage += `*Delivery Address:*\n`;
+            whatsappMessage += `${customerInfo.address}\n`;
+            whatsappMessage += `${customerInfo.city}, ${customerInfo.state} - ${customerInfo.pincode}\n\n`;
+            
             if (customerInfo.notes) {
-                whatsappMessage += `📝 Notes: ${customerInfo.notes}\n`;
+                whatsappMessage += `*Order Notes:*\n${customerInfo.notes}\n\n`;
             }
             
-            whatsappMessage += `\n*Order Items:*\n`;
+            whatsappMessage += `*Order Items:*\n`;
             cart.forEach(item => {
                 whatsappMessage += `➡️ ${item.name} (${item.size}) × ${item.quantity} - ₹${item.price * item.quantity}\n`;
             });
@@ -1618,38 +1695,39 @@
             const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
             whatsappMessage += `\n💰 *Total Amount: ₹${subtotal}*`;
             
-            // Encode message for WhatsApp URL
-            const encodedMessage = encodeURIComponent(whatsappMessage);
+            // Show confirmation first
+            showConfirmationPage();
             
-            // Show loading state
-            const submitBtn = this.querySelector('button[type="submit"]');
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting to WhatsApp...';
-            
-            // Open WhatsApp with the message
-            const whatsappUrl = `https://wa.me/918000007152?text=${encodedMessage}`;
-            
-            // Try to open WhatsApp in a new tab
-            const newWindow = window.open(whatsappUrl, '_blank');
-            
-            // Fallback if popup is blocked
-            if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-                // Create a temporary link and click it
-                const tempLink = document.createElement('a');
-                tempLink.href = whatsappUrl;
-                tempLink.target = '_blank';
-                tempLink.style.display = 'none';
-                document.body.appendChild(tempLink);
-                tempLink.click();
-                document.body.removeChild(tempLink);
-            }
-            
-            // Show confirmation page after a short delay
+            // Then open WhatsApp after a short delay
             setTimeout(() => {
-                showConfirmationPage();
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Place Order';
-            }, 1000);
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+                const whatsappUrl = `https://wa.me/918803000082?text=${encodedMessage}`;
+                
+                // Try multiple methods to open WhatsApp
+                try {
+                    // Method 1: Standard window.open
+                    const newWindow = window.open(whatsappUrl, '_blank');
+                    
+                    // If blocked, try Method 2: Create and click a link
+                    if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                        const tempLink = document.createElement('a');
+                        tempLink.href = whatsappUrl;
+                        tempLink.target = '_blank';
+                        tempLink.style.display = 'none';
+                        document.body.appendChild(tempLink);
+                        tempLink.click();
+                        document.body.removeChild(tempLink);
+                    }
+                } catch (e) {
+                    // Method 3: Fallback - show message to copy
+                    alert('Could not open WhatsApp automatically. Please copy this message and send it manually:\n\n' + whatsappMessage);
+                }
+            }, 500);
+            
+            // Reset submit button
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Place Order';
         });
 
         // Show improved confirmation page
